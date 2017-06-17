@@ -6,6 +6,11 @@
 [![Latest Unstable Version](https://poser.pugx.org/dazzle-php/throwable/v/unstable)](https://packagist.org/packages/dazzle-php/throwable) 
 [![License](https://poser.pugx.org/dazzle-php/throwable/license)](https://packagist.org/packages/dazzle-php/throwable/license)
 
+<br>
+<p align="center">
+<img src="https://avatars0.githubusercontent.com/u/29509136?v=3&s=150" />
+</p>
+
 ## Description
 
 Dazzle Throwable is a component that provides unified throwable hierarchy and additional helpers.
@@ -20,7 +25,6 @@ Throwable features:
 * Built-in ErrorHandler,
 * Built-in ExceptionHandler,
 * Implementation of throwable objects proxy,
-* Dazzle Framework compatibility,
 * ...and more.
 
 ## Requirements
@@ -31,7 +35,7 @@ Throwable features:
 ## Installation
 
 ```
-composer require dazzle-php/throwable
+$> composer require dazzle-php/throwable
 ```
 
 ## Tests
@@ -40,8 +44,11 @@ COMING SOON...
 
 ## Contributing
 
-COMING SOON...
+Thank you for considering contributing to this repository! The contribution guide can be found in the [contribution tips][1].
 
 ## License
 
-COMING SOON...
+Kraken Framework is open-sourced software licensed under the [MIT license][2].
+
+[1]: https://github.com/dazzle-php/throwable/blob/master/CONTRIBUTING.md
+[2]: http://opensource.org/licenses/MIT
