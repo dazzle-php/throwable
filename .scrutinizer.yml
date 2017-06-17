@@ -113,5 +113,7 @@ coding_style:
                 true_false_null: lower
 
 tools:
-    external_code_coverage: true
+    external_code_coverage:
+        timeout: 1800
+        runs: 1
     php_code_coverage: false

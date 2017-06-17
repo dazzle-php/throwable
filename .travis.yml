@@ -12,8 +12,8 @@ before_install:
   - export PHP_MAJOR="$(echo $TRAVIS_PHP_VERSION | cut -d '.' -f 1,2)"
 
 install:
-  - composer self-update
-  - composer install --prefer-source --no-interaction --ignore-platform-reqs
+  - travis_retry composer self-update
+  - travis_retry composer install --prefer-source --no-interaction --ignore-platform-reqs
   - php -m
 
 script:
