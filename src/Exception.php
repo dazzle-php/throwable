@@ -1,6 +1,6 @@
 <?php
 
-namespace Kraken\Throwable;
+namespace Dazzle\Throwable;
 
 class Exception extends \Exception
 {

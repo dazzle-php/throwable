@@ -1,8 +1,8 @@
 <?php
 
-namespace Kraken\Throwable\Exception\System;
+namespace Dazzle\Throwable\Exception\System;
 
-use Kraken\Throwable\Exception\SystemException;
+use Dazzle\Throwable\Exception\SystemException;
 
 class ParentUnresponsiveException extends SystemException
 {}

@@ -1,8 +1,8 @@
 <?php
 
-namespace Kraken\Throwable\Exception\Runtime;
+namespace Dazzle\Throwable\Exception\Runtime;
 
-use Kraken\Throwable\Exception\RuntimeException;
+use Dazzle\Throwable\Exception\RuntimeException;
 
 class OutOfBoundsException extends RuntimeException
 {}

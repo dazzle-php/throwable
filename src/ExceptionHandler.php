@@ -1,13 +1,13 @@
 <?php
 
-namespace Kraken\Throwable;
+namespace Dazzle\Throwable;
 
 abstract class ExceptionHandler
 {
     /**
      * @var string
      */
-    protected static $handler = '\Kraken\Throwable\Exception::toString';
+    protected static $handler = '\Dazzle\Throwable\Exception::toString';
 
     /**
      * Invoke default Exception Handler.

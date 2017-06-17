@@ -1,8 +1,8 @@
 <?php
 
-namespace Kraken\Throwable\Exception;
+namespace Dazzle\Throwable\Exception;
 
-use Kraken\Throwable\Exception;
+use Dazzle\Throwable\Exception;
 
 class RuntimeException extends Exception
 {}

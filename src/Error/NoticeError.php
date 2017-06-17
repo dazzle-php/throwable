@@ -1,8 +1,8 @@
 <?php
 
-namespace Kraken\Throwable\Error;
+namespace Dazzle\Throwable\Error;
 
-use Kraken\Throwable\Error;
+use Dazzle\Throwable\Error;
 
 class NoticeError extends Error
 {}

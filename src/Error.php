@@ -1,6 +1,6 @@
 <?php
 
-namespace Kraken\Throwable;
+namespace Dazzle\Throwable;
 
 class Error extends \Error
 {

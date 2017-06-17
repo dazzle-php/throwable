@@ -1,8 +1,8 @@
 <?php
 
-namespace Kraken\Throwable\Exception\Logic;
+namespace Dazzle\Throwable\Exception\Logic;
 
-use Kraken\Throwable\Exception\LogicException;
+use Dazzle\Throwable\Exception\LogicException;
 
 class ResourceException extends LogicException
 {}

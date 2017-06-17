@@ -1,10 +1,10 @@
 <?php
 
-namespace Kraken\Throwable;
+namespace Dazzle\Throwable;
 
-use Kraken\Throwable\Error\FatalError;
-use Kraken\Throwable\Error\NoticeError;
-use Kraken\Throwable\Error\WarningError;
+use Dazzle\Throwable\Error\FatalError;
+use Dazzle\Throwable\Error\NoticeError;
+use Dazzle\Throwable\Error\WarningError;
 
 abstract class ErrorHandler
 {
@@ -31,12 +31,12 @@ abstract class ErrorHandler
     /**
      * @var string
      */
-    protected static $errHandler = '\Kraken\Throwable\Error::toString';
+    protected static $errHandler = '\Dazzle\Throwable\Error::toString';
 
     /**
      * @var string
      */
-    protected static $excHandler = '\Kraken\Throwable\Exception::toString';
+    protected static $excHandler = '\Dazzle\Throwable\Exception::toString';
 
     /**
      * Invoke default Error Handler.

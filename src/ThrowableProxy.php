@@ -1,6 +1,6 @@
 <?php
 
-namespace Kraken\Throwable;
+namespace Dazzle\Throwable;
 
 /**
  * Throwables were designed to handle exceptional states that can occur in application during execution. They were not
@@ -89,7 +89,7 @@ class ThrowableProxy
         $class = $this->class;
         $prev  = $this->prev !== null ? $this->prev->toThrowable() : $this->prev;
 
-        return preg_match('#^(\\\?)Kraken#si', $class)
+        return preg_match('#^(\\\?)Dazzle#si', $class)
             ? new $class($this->message, $prev)
             : new $class($this->message, 0, $prev);
     }
