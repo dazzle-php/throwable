@@ -58,7 +58,7 @@ coding_style:
                 catch: true
                 finally: true
             within:
-                brackets: true
+                brackets: false
                 array_initializer: false
                 grouping: false
                 function_call: false
