@@ -6,8 +6,8 @@
     ],
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/dazzle-php/framework/issues",
-        "source": "https://github.com/kraken-php/framework"
+        "issues": "https://github.com/dazzle-php/throwable/issues",
+        "source": "https://github.com/dazzle-php/throwable"
     },
     "authors": [
         {
@@ -23,11 +23,12 @@
         "php": ">=5.6.7"
     },
     "require-dev": {
-        "phpunit/phpunit": "5.3.*"
+        "phpunit/phpunit": ">=4.8.0 <5.4.0"
     },
     "autoload": {
         "psr-4": {
-            "Dazzle\\Throwable\\": "src"
+            "Dazzle\\Throwable\\": "src/Throwable",
+            "Dazzle\\Throwable\\Test\\": "test"
         }
     },
     "extra": {

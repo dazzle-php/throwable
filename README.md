@@ -40,7 +40,9 @@ $> composer require dazzle-php/throwable
 
 ## Tests
 
-COMING SOON...
+```
+$> vendor/bin/phpunit -d memory_limit=1024M --coverage-text
+```
 
 ## Contributing
 

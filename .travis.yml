@@ -1,0 +1,20 @@
+language: php
+
+dist: trusty
+sudo: required
+
+php:
+  - 5.6
+  - 7.0
+  - 7.1
+
+before_install:
+  - export PHP_MAJOR="$(echo $TRAVIS_PHP_VERSION | cut -d '.' -f 1,2)"
+
+install:
+  - composer self-update
+  - composer install --prefer-source --no-interaction --ignore-platform-reqs
+  - php -m
+
+script:
+  - vendor/bin/phpunit -d memory_limit=1024M --coverage-text
