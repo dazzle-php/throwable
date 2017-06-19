@@ -91,7 +91,7 @@ class ThrowableProxyTest extends TUnit
     public function testApiConstructor_CreatesInstance_WithPreviousElementBeingFrameworkError()
     {
         $prev = new \Dazzle\Throwable\Error('Previous');
-        $ex = new \Dazzle\Throwable\Error('Error', $prev);
+        $ex = new \Dazzle\Throwable\Error('Error', 0, $prev);
 
         $proxy = $this->createThrowableProxy($ex);
 
@@ -110,7 +110,7 @@ class ThrowableProxyTest extends TUnit
     public function testApiConstructor_CreatesInstance_WithPreviousElementBeingException()
     {
         $prev = new \Dazzle\Throwable\Exception('Previous');
-        $ex = new \Dazzle\Throwable\Exception('Exception', $prev);
+        $ex = new \Dazzle\Throwable\Exception('Exception', 0, $prev);
 
         $proxy = $this->createThrowableProxy($ex);
 

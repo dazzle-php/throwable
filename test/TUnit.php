@@ -104,46 +104,6 @@ class TUnit extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return LoopInterface|\PHPUnit_Framework_MockObject_MockObject
-     */
-    public function createLoopMock()
-    {
-        return $this->getMock('Dazzle\Loop\LoopInterface');
-    }
-
-    /**
-     * @return LoopInterface|\PHPUnit_Framework_MockObject_MockObject
-     */
-    public function createWritableLoopMock()
-    {
-        $loop = $this->createLoopMock();
-        $loop
-            ->expects($this->once())
-            ->method('addWriteStream')
-            ->will($this->returnCallback(function($stream, $listener) {
-                call_user_func($listener, $stream);
-            }));
-
-        return $loop;
-    }
-
-    /**
-     * @return LoopInterface|\PHPUnit_Framework_MockObject_MockObject
-     */
-    public function createReadableLoopMock()
-    {
-        $loop = $this->createLoopMock();
-        $loop
-            ->expects($this->once())
-            ->method('addReadStream')
-            ->will($this->returnCallback(function($stream, $listener) {
-                call_user_func($listener, $stream);
-            }));
-
-        return $loop;
-    }
-
-    /**
      * Check if protected property exists.
      *
      * @param object $object

@@ -23,10 +23,10 @@ class ExceptionTest extends TUnit
      */
     public function testApiConstructor_ChainsExceptions()
     {
-        $previous = $this->createException('Previous');
-        $ex = $this->createException('Exception', $previous);
+        $prev = $this->createException('Previous');
+        $ex = $this->createException('Exception', 0, $prev);
 
-        $this->assertSame($previous, $ex->getPrevious());
+        $this->assertSame($prev, $ex->getPrevious());
     }
 
     /**
@@ -44,7 +44,7 @@ class ExceptionTest extends TUnit
     public function testApiToString_ReturnsExceptionStack()
     {
         $prev = $this->createException('Previous');
-        $ex   = $this->createException('Exception', $prev);
+        $ex   = $this->createException('Exception', 0, $prev);
 
         $this->assertString((string) $ex);
     }
@@ -55,7 +55,7 @@ class ExceptionTest extends TUnit
     public function testStaticApiToString_ReturnsExceptionStack()
     {
         $prev = $this->createException('Previous');
-        $ex   = $this->createException('Exception', $prev);
+        $ex   = $this->createException('Exception', 0, $prev);
 
         $this->assertSame((string) $ex, Exception::toString($ex));
     }
@@ -66,7 +66,7 @@ class ExceptionTest extends TUnit
     public function testStaticApiToTrace_ReturnsTrace()
     {
         $prev = $this->createException('Previous');
-        $ex   = $this->createException('Exception', $prev);
+        $ex   = $this->createException('Exception', 0, $prev);
 
         $this->assertTrace(Exception::toTrace($ex));
     }
@@ -77,7 +77,7 @@ class ExceptionTest extends TUnit
     public function testStaticApiToStackTrace_ReturnsStackTrace()
     {
         $prev = $this->createException('Previous');
-        $ex   = $this->createException('Exception', $prev);
+        $ex   = $this->createException('Exception', 0, $prev);
 
         $this->assertStackTrace(Exception::toStackTrace($ex));
     }
@@ -88,7 +88,7 @@ class ExceptionTest extends TUnit
     public function testStaticApiToThrowableTrace_ReturnsStackThrowable()
     {
         $prev = $this->createException('Previous');
-        $ex   = $this->createException('Exception', $prev);
+        $ex   = $this->createException('Exception', 0, $prev);
 
         $this->assertThrowableTrace(Exception::toThrowableTrace($ex));
     }
@@ -99,7 +99,7 @@ class ExceptionTest extends TUnit
     public function testStaticApiToStackString_ReturnsStackTraceAsString()
     {
         $prev = $this->createException('Previous');
-        $ex   = $this->createException('Exception', $prev);
+        $ex   = $this->createException('Exception', 0, $prev);
 
         $this->assertStackString(Exception::toStackString($ex));
     }
@@ -110,19 +110,20 @@ class ExceptionTest extends TUnit
     public function testStaticApiToThrowableString_ReturnsThrowableTraceAsString()
     {
         $prev = $this->createException('Previous');
-        $ex   = $this->createException('Exception', $prev);
+        $ex   = $this->createException('Exception', 0, $prev);
 
         $this->assertThrowableString(Exception::toThrowableString($ex));
     }
 
     /**
      * @param string $message
+     * @param int $code
      * @param null $previous
      * @return Exception
      */
-    public function createException($message, $previous = null)
+    public function createException($message, $code = 0, $previous = null)
     {
-        return new Exception($message, $previous);
+        return new Exception($message, $code, $previous);
     }
 
     /**

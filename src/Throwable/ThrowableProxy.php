@@ -89,9 +89,7 @@ class ThrowableProxy
         $class = $this->class;
         $prev  = $this->prev !== null ? $this->prev->toThrowable() : $this->prev;
 
-        return preg_match('#^(\\\?)Dazzle#si', $class)
-            ? new $class($this->message, $prev)
-            : new $class($this->message, 0, $prev);
+        return new $class($this->message, 0, $prev);
     }
 
     /**

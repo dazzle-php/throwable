@@ -6,11 +6,12 @@ class Exception extends \Exception
 {
     /**
      * @param string $message
+     * @param int $code
      * @param \Error|\Exception|null $previous
      */
-    public function __construct($message = 'Unknown exception', $previous = null)
+    public function __construct($message = 'Unknown exception', $code = 0, $previous = null)
     {
-        parent::__construct($message, 0, $previous);
+        parent::__construct($message, $code, $previous);
     }
 
     /**

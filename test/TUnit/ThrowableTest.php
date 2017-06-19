@@ -15,7 +15,7 @@ class ThrowableTest extends TUnit
     public function testStaticApiParseThrowableMessage_ParsesThrowableMessage_ForError()
     {
         $prev = $this->createError('Previous');
-        $ex   = $this->createError($message = 'Exception', $prev);
+        $ex   = $this->createError($message = 'Exception', 0, $prev);
         $stack = Throwable::getThrowableStack($ex);
         $base  = $this->callProtectedMethod(Throwable::class, 'getBasename', [ get_class($ex) ]);
 
@@ -28,7 +28,7 @@ class ThrowableTest extends TUnit
     public function testStaticApiParseThrowableMessage_ParsesThrowableMessage_ForException()
     {
         $prev = $this->createException('Previous');
-        $ex   = $this->createException($message = 'Exception', $prev);
+        $ex   = $this->createException($message = 'Exception', 0, $prev);
         $stack = Throwable::getThrowableStack($ex);
         $base  = $this->callProtectedMethod(Throwable::class, 'getBasename', [ get_class($ex) ]);
 
@@ -41,7 +41,7 @@ class ThrowableTest extends TUnit
     public function testStaticApiGetThrowableStack_ReturnsStack_ForError()
     {
         $prev = $this->createError('Previous');
-        $ex   = $this->createError($message = 'Exception', $prev);
+        $ex   = $this->createError($message = 'Exception', 0, $prev);
 
         $stack = Throwable::getThrowableStack($ex);
         $this->assertData($stack);
@@ -54,7 +54,7 @@ class ThrowableTest extends TUnit
     public function testStaticApiGetThrowableStack_ReturnsStack_ForException()
     {
         $prev = $this->createException('Previous');
-        $ex   = $this->createException($message = 'Exception', $prev);
+        $ex   = $this->createException($message = 'Exception', 0, $prev);
 
         $stack = Throwable::getThrowableStack($ex);
         $this->assertData($stack);
@@ -67,7 +67,7 @@ class ThrowableTest extends TUnit
     public function testStaticApiGetThrowableData_ReturnsData_ForError()
     {
         $prev = $this->createError('Previous');
-        $ex   = $this->createError($message = 'Exception', $prev);
+        $ex   = $this->createError($message = 'Exception', 0, $prev);
 
         $data = Throwable::getThrowableData($ex);
         $this->assertData($data);
@@ -79,7 +79,7 @@ class ThrowableTest extends TUnit
     public function testStaticApiGetThrowableData_ReturnsData_ForException()
     {
         $prev = $this->createException('Previous');
-        $ex   = $this->createException($message = 'Exception', $prev);
+        $ex   = $this->createException($message = 'Exception', 0, $prev);
 
         $data = Throwable::getThrowableData($ex);
         $this->assertData($data);
@@ -91,7 +91,7 @@ class ThrowableTest extends TUnit
     public function testStaticApiGetTraceElements_ReturnsTraceElements_ForError()
     {
         $prev = $this->createError('Previous');
-        $ex   = $this->createError('Exception', $prev);
+        $ex   = $this->createError('Exception', 0, $prev);
 
         $elements = $this->callProtectedMethod(Throwable::class, 'getTraceElements', [ $ex ]);
         $this->assertTrace($elements);
@@ -103,7 +103,7 @@ class ThrowableTest extends TUnit
     public function testStaticApiGetTraceElements_ReturnsTraceElements_ForException()
     {
         $prev = $this->createException('Previous');
-        $ex   = $this->createException('Exception', $prev);
+        $ex   = $this->createException('Exception', 0, $prev);
 
         $elements = $this->callProtectedMethod(Throwable::class, 'getTraceElements', [ $ex ]);
         $this->assertTrace($elements);
@@ -176,22 +176,24 @@ class ThrowableTest extends TUnit
 
     /**
      * @param string $message
+     * @param int $code
      * @param \Error|\Exception|null $prev
      * @return Exception
      */
-    public function createException($message, $prev = null)
+    public function createException($message, $code = 0, $prev = null)
     {
-        return new Exception($message, $prev);
+        return new Exception($message, $code, $prev);
     }
 
     /**
      * @param string $message
+     * @param int $code
      * @param \Error|\Exception|null $prev
      * @return Error
      */
-    public function createError($message, $prev = null)
+    public function createError($message, $code = 0, $prev = null)
     {
-        return new Error($message, $prev);
+        return new Error($message, $code, $prev);
     }
 
     /**

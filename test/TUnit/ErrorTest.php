@@ -24,7 +24,7 @@ class ErrorTest extends TUnit
     public function testApiConstructor_ChainsErrors()
     {
         $previous = $this->createError('Previous');
-        $ex = $this->createError('Error', $previous);
+        $ex = $this->createError('Error', 0, $previous);
 
         $this->assertSame($previous, $ex->getPrevious());
     }
@@ -44,7 +44,7 @@ class ErrorTest extends TUnit
     public function testApiToString_ReturnsErrorStack()
     {
         $prev = $this->createError('Previous');
-        $ex   = $this->createError('Error', $prev);
+        $ex   = $this->createError('Error', 0, $prev);
 
         $this->assertString((string) $ex);
     }
@@ -55,7 +55,7 @@ class ErrorTest extends TUnit
     public function testStaticApiToString_ReturnsErrorStack()
     {
         $prev = $this->createError('Previous');
-        $ex   = $this->createError('Error', $prev);
+        $ex   = $this->createError('Error', 0, $prev);
 
         $this->assertSame((string) $ex, Error::toString($ex));
     }
@@ -66,7 +66,7 @@ class ErrorTest extends TUnit
     public function testStaticApiToTrace_ReturnsTrace()
     {
         $prev = $this->createError('Previous');
-        $ex   = $this->createError('Error', $prev);
+        $ex   = $this->createError('Error', 0, $prev);
 
         $this->assertTrace(Error::toTrace($ex));
     }
@@ -77,7 +77,7 @@ class ErrorTest extends TUnit
     public function testStaticApiToStackTrace_ReturnsStackTrace()
     {
         $prev = $this->createError('Previous');
-        $ex   = $this->createError('Error', $prev);
+        $ex   = $this->createError('Error', 0, $prev);
 
         $this->assertStackTrace(Error::toStackTrace($ex));
     }
@@ -88,7 +88,7 @@ class ErrorTest extends TUnit
     public function testStaticApiToThrowableTrace_ReturnsStackThrowable()
     {
         $prev = $this->createError('Previous');
-        $ex   = $this->createError('Error', $prev);
+        $ex   = $this->createError('Error', 0, $prev);
 
         $this->assertThrowableTrace(Error::toThrowableTrace($ex));
     }
@@ -99,7 +99,7 @@ class ErrorTest extends TUnit
     public function testStaticApiToStackString_ReturnsStackTraceAsString()
     {
         $prev = $this->createError('Previous');
-        $ex   = $this->createError('Error', $prev);
+        $ex   = $this->createError('Error', 0, $prev);
 
         $this->assertStackString(Error::toStackString($ex));
     }
@@ -110,19 +110,20 @@ class ErrorTest extends TUnit
     public function testStaticApiToThrowableString_ReturnsThrowableTraceAsString()
     {
         $prev = $this->createError('Previous');
-        $ex   = $this->createError('Error', $prev);
+        $ex   = $this->createError('Error', 0, $prev);
 
         $this->assertThrowableString(Error::toThrowableString($ex));
     }
 
     /**
      * @param string $message
+     * @param int $code
      * @param null $previous
      * @return Error
      */
-    public function createError($message, $previous = null)
+    public function createError($message, $code = 0, $previous = null)
     {
-        return new Error($message, $previous);
+        return new Error($message, $code, $previous);
     }
 
     /**
