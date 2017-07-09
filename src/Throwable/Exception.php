@@ -5,6 +5,11 @@ namespace Dazzle\Throwable;
 class Exception extends \Exception
 {
     /**
+     * @var mixed[]
+     */
+    protected $context = [];
+
+    /**
      * @param string $message
      * @param int $code
      * @param \Error|\Exception|null $previous
@@ -12,6 +17,22 @@ class Exception extends \Exception
     public function __construct($message = 'Unknown exception', $code = 0, $previous = null)
     {
         parent::__construct($message, $code, $previous);
+    }
+
+    /**
+     * @param mixed[] $context
+     */
+    public function setContext(array $context = [])
+    {
+        $this->context = $context;
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function getContext()
+    {
+        return $this->context;
     }
 
     /**

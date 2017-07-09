@@ -33,6 +33,11 @@ class ThrowableProxy
     protected $prev;
 
     /**
+     * @var mixed[]
+     */
+    protected $context;
+
+    /**
      * @param \Error|\Exception|string[]|string $throwableOrMessage
      */
     public function __construct($throwableOrMessage)
@@ -67,6 +72,22 @@ class ThrowableProxy
         unset($this->class);
         unset($this->message);
         unset($this->prev);
+    }
+
+    /**
+     * @param mixed[] $context
+     */
+    public function setContext(array $context = [])
+    {
+        $this->context = $context;
+    }
+
+    /**
+     * @return mixed[]
+     */
+    public function getContext()
+    {
+        return $this->context;
     }
 
     /**
