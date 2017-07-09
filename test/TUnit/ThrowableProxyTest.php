@@ -135,6 +135,30 @@ class ThrowableProxyTest extends TUnit
     /**
      *
      */
+    public function testApiSetContext_SetsContext()
+    {
+        $ex = $this->createThrowableProxy('');
+
+        $ex->setContext($context = [ 5, 'ABC', new \StdClass ]);
+
+        $this->assertSame($context, $this->getProtectedProperty($ex, 'context'));
+    }
+
+    /**
+     *
+     */
+    public function testApiGetContext_GetsContext()
+    {
+        $ex = $this->createThrowableProxy('');
+
+        $ex->setContext($context = [ 5, 'ABC', new \StdClass ]);
+
+        $this->assertSame($context, $ex->getContext());
+    }
+
+    /**
+     *
+     */
     public function testApiToString_ReturnsString()
     {
         $prev = new Exception('Previous');

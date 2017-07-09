@@ -41,6 +41,30 @@ class ErrorTest extends TUnit
     /**
      *
      */
+    public function testApiSetContext_SetsContext()
+    {
+        $ex = $this->createError('Error');
+
+        $ex->setContext($context = [ 5, 'ABC', new \StdClass ]);
+
+        $this->assertSame($context, $this->getProtectedProperty($ex, 'context'));
+    }
+
+    /**
+     *
+     */
+    public function testApiGetContext_GetsContext()
+    {
+        $ex = $this->createError('Error');
+
+        $ex->setContext($context = [ 5, 'ABC', new \StdClass ]);
+
+        $this->assertSame($context, $ex->getContext());
+    }
+
+    /**
+     *
+     */
     public function testApiToString_ReturnsErrorStack()
     {
         $prev = $this->createError('Previous');
