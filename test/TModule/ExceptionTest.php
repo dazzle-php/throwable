@@ -19,6 +19,7 @@ use Dazzle\Throwable\Exception\Runtime\ExecutionException;
 use Dazzle\Throwable\Exception\Runtime\OutOfBoundsException;
 use Dazzle\Throwable\Exception\Runtime\OverflowException;
 use Dazzle\Throwable\Exception\Runtime\UnderflowException;
+use Dazzle\Throwable\Exception\Runtime\UnexpectedValueException;
 use Dazzle\Throwable\Exception\System\ChildUnresponsiveException;
 use Dazzle\Throwable\Exception\System\ParentUnresponsiveException;
 use Dazzle\Throwable\Exception\System\TaskIncompleteException;
@@ -53,6 +54,7 @@ class ExceptionTest extends TModule
             OutOfBoundsException::class         => RuntimeException::class,
             OverflowException::class            => RuntimeException::class,
             UnderflowException::class           => RuntimeException::class,
+            UnexpectedValueException::class     => RuntimeException::class,
             ChildUnresponsiveException::class   => SystemException::class,
             ParentUnresponsiveException::class  => SystemException::class,
             TaskIncompleteException::class      => SystemException::class,
