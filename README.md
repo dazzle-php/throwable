@@ -32,13 +32,36 @@ Dazzle Throwable features:
 
 ## Provided Example(s)
 
-### Quickstart
+Provided throwable hierarchy:
 
-TODO
-
-### Additional
-
-TODO
+```
+Throwable
+    Error
+        FatalError
+        WarningError
+        NoticeError
+    Exception
+        LogicException
+            IllegalCallException
+            IllegalFieldException
+            InstantiationException
+            InvalidArgumentException
+            InvalidFormatException
+            ResourceException
+            ResourceOccupiedException
+            ResourceUndefinedException
+        RuntimeException
+            CancellationException
+            ExecutionException
+            OutOfBoundsException
+            OverflowException
+            ReadException
+            RejectionException
+            TimeoutException
+            UndeflowException
+            UnexpectedValueException
+            WriteException
+```
 
 ## Requirements
 
